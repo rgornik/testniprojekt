@@ -15,3 +15,10 @@ try:
             print izberi
 except Exception as e:
     print "Vnesi celo stevilo"
+
+
+text = "Program velike Crke spremeni v Male"
+
+print text
+
+print text.lower()
