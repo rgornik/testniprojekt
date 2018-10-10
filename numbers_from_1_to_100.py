@@ -22,3 +22,5 @@ text = "Program velike Crke spremeni v Male"
 print text
 
 print text.lower()
+
+#learning github
