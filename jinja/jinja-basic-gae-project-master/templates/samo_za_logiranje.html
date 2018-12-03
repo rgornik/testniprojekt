@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Samo za logiranje{% endblock title %}
+
+{% block vsebina %}
+
+{% if logiran %}
+
+    <h1>Pozdravljen {{ user.nickname() }}!</h1>
+    <a href="{{ logout_url }}">Logout</a>
+{% else %}
+    <h1>Pozdravljen Anonimnež!</h1>
+    <a href="{{ login_url }}">Login</a>
+{% endif %}
+
+{% endblock vsebina %}

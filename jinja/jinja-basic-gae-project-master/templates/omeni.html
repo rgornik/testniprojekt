@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block vsebina %}
+
+    <h1>O meni</h1>
+
+    <p>Sem tukaj in grem naprej</p>
+
+
+    {% if name %}
+        <p>Ime: {{ name }}</p>
+    {% else %}
+        <p>Pozdravljen Anonimnež</p>
+    {% endif %}
+
+
+<p>Kontaktiraj me:
+    <form method="post" action="/rezultat">
+        <input name="vnos">
+        <button type="submit">Objavi</button>
+    </form>
+</p>
+
+<p>
+    <ul>
+        {% for sp in sporocila %}
+            <li>{{ sp.vnos }} |
+                <a href="/sporocilo/{{ sp.key.id() }}/uredi">uredi</a> |
+                <a href="/sporocilo/{{ sp.key.id() }}/izbrisi">izbrisi</a> |
+            </li>
+        {% endfor %}
+    </ul>
+</p>
+
+{% endblock vsebina %}

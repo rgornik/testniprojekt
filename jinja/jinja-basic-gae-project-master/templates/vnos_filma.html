@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Vnos Filma{% endblock title %}
+
+{% block vsebina %}
+
+    <h1>Vnesi nov film</h1>
+
+    {% if name %}
+        <p>Pozdravljen {{ name }}</p>
+    {% else %}
+        <p>Pozdravljen Anonimnež</p>
+    {% endif %}
+
+<form method="post" action="/dodaj_film">
+    Naslov: <input name="naslov"> <br>
+    Reziser: <input name="reziser"> <br>
+    Glavni igralec: <input name="igralec"> <br>
+    Zanr: <input name="zanr"> <br>
+    Leto Prod: <input name="leto_prod"> <br>
+    Ocena:
+    <select name="ocena">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select> <br>
+    URL slike: <input name="slika"> <br>
+    Ogledano:
+    <input type="radio" name="ogledano" value="1">Da
+    <input type="radio" name="ogledano" value="0">Ne <br>
+    Komentar: <input name="komentar"> <br>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+<h3>Vsi filmi:</h3>
+{% for film in all_films %}
+
+    <p>
+        {{ film.naslov }}
+        {{ film.reziser }}
+        {{ film.glavni_igralec }}
+        {{ film.ocena }}
+        {% if film.slika.startswith("http") %}
+            <img src="{{ film.slika }}" alt="slika" height="10%" width="10%">
+    </p>
+
+{% endfor %}
+
+{% endblock vsebina %}

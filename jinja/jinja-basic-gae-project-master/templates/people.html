@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}People{% endblock title %}
+
+{% block vsebina %}
+
+    <h1>Vreme</h1>
+    {{ weather.name }}<br>
+    {{ weather.main.temp }}&deg;C<br>
+    {{ weather.main.humidity }}%
+
+    <h1>Ljudi</h1>
+
+    <p>
+        <ol>
+        {% for person in people %}
+        <li>{{ person.first_name }}-{{ person.last_name }}-{{ person.SSN }}</li>
+        {% endfor %}
+        </ol>
+    </p>
+
+
+{% endblock vsebina %}
